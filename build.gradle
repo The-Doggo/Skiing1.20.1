@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com.affehund'
-version = '1.19.2-1.0.1'
+version = '1.20.1-1.0.0'
 
 java {
     archivesBaseName = 'skiing'
@@ -11,7 +11,7 @@ java {
 }
 
 minecraft {
-    mappings channel: 'official', version: '1.19.2'
+    mappings channel: 'official', version: '1.20.1'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -117,11 +117,11 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.2-43.2.3'
+    minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
 
-    compileOnly fg.deobf("mezz.jei:jei-1.19.2-common-api:11.5.0.297")
-    compileOnly fg.deobf("mezz.jei:jei-1.19.2-forge-api:11.5.0.297")
-    runtimeOnly fg.deobf("mezz.jei:jei-1.19.2-forge:11.5.0.297")
+    compileOnly fg.deobf("mezz.jei:jei-1.20.1-common-api:15.2.0.27")
+    compileOnly fg.deobf("mezz.jei:jei-1.20.1-forge-api:15.2.0.27")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.20.1-forge:15.2.0.27")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.

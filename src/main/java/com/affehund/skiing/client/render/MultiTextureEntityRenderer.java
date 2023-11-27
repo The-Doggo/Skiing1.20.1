@@ -3,7 +3,7 @@ package com.affehund.skiing.client.render;
 import com.affehund.skiing.common.entity.AbstractMultiTextureEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -33,8 +33,8 @@ public class MultiTextureEntityRenderer extends EntityRenderer<AbstractMultiText
     public void render(AbstractMultiTextureEntity entity, float entityYaw, float partialTicks, PoseStack poseStack, @NotNull MultiBufferSource buffer, int packedLight) {
         poseStack.pushPose();
         poseStack.translate(0.0D, 1.5D, 0.0D);
-        poseStack.mulPose(Vector3f.YP.rotationDegrees(90.0F - entityYaw));
-        poseStack.mulPose(Vector3f.XP.rotationDegrees(180F));
+        poseStack.mulPose(Axis.YP.rotationDegrees(90.0F - entityYaw));
+        poseStack.mulPose(Axis.XP.rotationDegrees(180F));
 
         float f = (float) entity.getTimeSinceHit() - partialTicks;
         float f1 = entity.getDamageTaken() - partialTicks;
@@ -43,7 +43,7 @@ public class MultiTextureEntityRenderer extends EntityRenderer<AbstractMultiText
         }
 
         if (f > 0.0F) {
-            poseStack.mulPose(Vector3f.XP
+            poseStack.mulPose(Axis.XP
                     .rotationDegrees(Mth.sin(f) * f * f1 / 45.0F));
         }
         this.model.setupAnim(entity, partialTicks, 0.0F, 0.0F, 0.0F, 0.0F);
