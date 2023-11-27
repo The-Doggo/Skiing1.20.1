@@ -45,6 +45,7 @@ public class MultiTextureBEWLR extends BlockEntityWithoutLevelRenderer {
             if (itemDisplayContext == ItemDisplayContext.GUI) {
                 poseStack.mulPose(Axis.YP.rotationDegrees(180));
             }
+
             if (itemDisplayContext == ItemDisplayContext.FIXED) {
                 poseStack.mulPose(Axis.XN.rotationDegrees(180));
             }

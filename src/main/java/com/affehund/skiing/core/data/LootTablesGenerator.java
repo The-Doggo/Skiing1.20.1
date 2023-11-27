@@ -2,16 +2,17 @@ package com.affehund.skiing.core.data;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.world.level.storage.loot.*;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.LootTables;
-import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import org.jetbrains.annotations.NotNull;
+
 
 import java.util.List;
 import java.util.Map;
@@ -33,12 +34,12 @@ public class LootTablesGenerator extends LootTableProvider {
 
     @Override
     protected void validate(Map<ResourceLocation, LootTable> map, @NotNull ValidationContext validationTracker) {
-        map.forEach((resourceLocation, lootTable) -> LootTables.validate(validationTracker, resourceLocation, lootTable));
+        map.forEach((resourceLocation, lootTable) -> LootTable.validate(validationTracker));//, resourceLocation, lootTable));
     }
 
     public static class Blocks extends BlockLoot {
         @Override
-        protected void addTables() {
+        protected void addTags(HolderLookup.Provider p_256380_) {
             /*for (Block block : SkiingBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).toList()) {
                 this.add(block, createSkiRackDrops(block));
             }*/

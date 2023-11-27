@@ -2,12 +2,12 @@ package com.affehund.skiing.core.data;
 
 import com.affehund.skiing.core.util.SkiingTags;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
-public class BlockTagsGenerator extends BlockTagsProvider {
+public abstract class BlockTagsGenerator extends BlockTagsProvider {
     public BlockTagsGenerator(DataGenerator dataGenerator, String modId, @Nullable ExistingFileHelper existingFileHelper) {
         super(dataGenerator, modId, existingFileHelper);
     }
